@@ -46,4 +46,17 @@ docker ps -a <br>
 You can use `docker exec -t -i {container ID or name} bash` to access container which is running.
 ![docker exec -i -t bash](./image/docker_exec_it_bash.png)
 
-Now~~~ the container 
+Now~~~ the container has started, You can do some operation like use Linux system in container.<br>
+
+In example we implement nginx website:
+```
+apt update -y
+```
+```
+apt install nginx 
+```
+```
+service nginx start
+```
+In local(not container) you can open broswer(chrome, edge, firefox) to checkout nginx.
+![single node example](./image/single_node_example.png)
