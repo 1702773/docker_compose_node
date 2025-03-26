@@ -37,9 +37,13 @@ The docker run usually use parameter shown on below:<br>
 `--dns` Set custom DNS servers <br>
 `--gpus` GPU devices to add to the container <br>
 
-After `docker run `, you can use `docker ps ` to check out container status which container is running and use `docker ps -a` can list all container whether started or not.
+After `docker run `, you can use `docker ps ` to check out container status which container is running and use `docker ps -a` can list all container whether started or not.<br>
 docker ps <br>
 ![docker_ps](./image/docker_ps.png)
 docker ps -a <br>
 ![docker_ps_a](./image/docker_ps_a.png)
 
+You can use `docker exec -t -i {container ID or name} bash` to access container which is running.
+![docker exec -i -t bash](./image/docker_exec_it_bash.png)
+
+Now~~~ the container 
