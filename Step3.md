@@ -40,12 +40,19 @@ When you prepared compose file like `compose.yaml` or `compose.yml` you can use 
 ```
 docker compose up
 ```
+
 ```
 docker compose down
 ```
 ```
 docker compose logs
 ```
+![docker compose logs](./image/docker_compose_logs.png)
 ```
+# note! docker ps is diff. docker compose ps
 docker compose ps
 ```
+![docker compose ps](./image/docker_compose_ps.png)
+### Verify docker compose 
+![docker compose verify](./image/docker_compose_verify.png)
+The docker compose setup is complete.<br>
