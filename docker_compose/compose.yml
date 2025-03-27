@@ -1,0 +1,12 @@
+#compose.yml
+services: 
+  Website: 
+    image: ubuntu 
+    ports: 
+      - "5000:80"
+    command: bash -c "apt update -y && bash"
+  Database:  
+    image: ubuntu  
+    ports:
+      - "3306:3306"
+    command: bash -c "apt update -y && bash"
