@@ -26,13 +26,13 @@ services:
   Website: 
     image: ubuntu 
     ports: 
-      - "5000:80"
-    command: bash -c "apt update -y && bash"
+      - "5001:80"
+    command: bash -c "apt update -y && apt install nginx -y && service nginx start && tail -f /dev/null"
   Database:  
     image: ubuntu  
     ports:
       - "3306:3306"
-    command: bash -c "apt update -y && bash"
+    command: bash -c "apt update -y && apt install mariadb-server -y && service mariadb start && tail -f /dev/null"
 ```
 
 ### Compose CLI(Command-line interface)
