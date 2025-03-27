@@ -62,6 +62,7 @@ In website view we use php file to connect database to show user table.
 Browser view
 ![browser view](./image/website_php_sql_verify.png)
 ### Database view
+
 ![ping website](./image/ping_website.png)
 The Database can connect Website
 

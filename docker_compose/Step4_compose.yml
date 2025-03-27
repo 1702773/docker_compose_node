@@ -4,18 +4,20 @@ services:
     image: ubuntu 
     ports: 
       - "5003:80"
+    hostname: Website
     networks:
       private_network:
         ipv4_address: 10.5.0.5
-    command: bash -c "apt update -y && apt install nginx -y && service nginx start && tail -f /dev/null"
+    command: bash -c "apt update -y && apt install nginx -y && service nginx start && apt install vim -y && tail -f /dev/null"
   net_Database:  
     image: ubuntu  
     ports:
       - "3306:3306"
+    hostname: Database
     networks:
       private_network:
         ipv4_address: 10.5.0.6
-    command: bash -c "apt update -y && apt install mariadb-server -y && service mariadb start && tail -f /dev/null"
+    command: bash -c "apt update -y && apt install mariadb-server -y && service mariadb start && apt install vim -y && tail -f /dev/null"
 networks:
   private_network:
     driver: bridge
