@@ -1,0 +1,48 @@
+# SS_1_cal_money.yml
+# 記帳網頁-單人版本
+services: 
+  net_Website: 
+    build:
+      context: ../nginx_file
+      dockerfile: Dockerfile
+    container_name: net_Website
+    image: ubuntu 
+    ports: 
+      - "5003:80"
+    hostname: Website
+    networks:
+      private_network:
+        ipv4_address: 10.5.0.5
+    command: bash -c "apt update -y && apt install nginx -y && service nginx start && apt install vim -y && tail -f /dev/null"
+  net_Database:  
+    container_name: net_Database
+    image: ubuntu  
+    ports:
+      - "3306:3306"
+    hostname: Database
+    networks:
+      private_network:
+        ipv4_address: 10.5.0.6
+    command: bash -c "apt update -y && apt install mariadb-server -y && service mariadb start && apt install vim -y && tail -f /dev/null"
+  api:
+    container_name: api
+    image: ubuntu
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_HOST=net_Database
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=
+      - DB_NAME=cal_money_db
+    hostname: api
+    depends_on:
+      - net_Database
+    command: bash -c "apt update -y && apt install python3 -y && apt install vim -y && tail -f /dev/null"
+networks:
+  private_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
+          gateway: 10.5.0.1
