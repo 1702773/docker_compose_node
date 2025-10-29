@@ -1,0 +1,25 @@
+services:
+  LEMP_server:
+    container_name: LEMP_server
+    image: ubuntu
+    ports:
+      - "8080:80"
+      - "3307:3306"
+    command: 
+      - bash 
+      - -c 
+      - |
+        apt update -y && apt install -y nginx vim mariadb-server php-fpm php-mysql
+        service nginx start
+        service mariadb start
+        tail -f /dev/null
+      
+
+networks:
+  private_network:
+    name: private_network
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 10.5.0.0/16
+        gateway: 10.5.0.1

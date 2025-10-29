@@ -1,7 +1,7 @@
 # 1️⃣ 建構所有容器（image）
 docker compose -f docker-compose.yml build
 
-# 2️⃣ 啟動所有容器
+# 2️⃣ 啟動所有容器 背景執行
 docker compose -f docker-compose.yml up -d
 
 # 3️⃣ 查看運作狀態
