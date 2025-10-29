@@ -5,6 +5,7 @@ services:
     ports:
       - "8080:80"
       - "3307:3306"
+      - "4443:443"
     command: 
       - bash 
       - -c 
